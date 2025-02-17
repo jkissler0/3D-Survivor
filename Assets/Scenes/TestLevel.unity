@@ -42,8 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 13
-  m_BakeOnSceneLoad: 0
+  serializedVersion: 12
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -167,7 +166,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
 --- !u!114 &595572394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,7 +481,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ea096ef8cb69d544abc773f71d1f2390, type: 3}
   m_PrefabInstance: {fileID: 1099389251}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &746297120
+--- !u!64 &746297121
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746297116}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8742438702474970707, guid: ea096ef8cb69d544abc773f71d1f2390, type: 3}
+--- !u!114 &746297125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -515,28 +535,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 026c8eb6974b69046b6152846ceb2fa9, type: 2}
   m_BuildHeightMesh: 0
---- !u!64 &746297121
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746297116}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8742438702474970707, guid: ea096ef8cb69d544abc773f71d1f2390, type: 3}
 --- !u!1 &746963962
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,10 +977,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ea096ef8cb69d544abc773f71d1f2390, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 746297120}
+      addedObject: {fileID: 746297121}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ea096ef8cb69d544abc773f71d1f2390, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 746297121}
+      addedObject: {fileID: 746297125}
   m_SourcePrefab: {fileID: 100100000, guid: ea096ef8cb69d544abc773f71d1f2390, type: 3}
 --- !u!1 &1796583007
 GameObject:
