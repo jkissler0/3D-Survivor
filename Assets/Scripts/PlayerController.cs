@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 movement;
     public float speed = 0;
     public float health = 100;
+    // private float damageCooldown = 1.0f;
+    // private float lastDamageTime = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,11 +27,14 @@ public class PlayerController : MonoBehaviour
         moveInput = movementValue.Get<Vector2>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
+    // private void OnTriggerStay(Collider other)
     {
+        // if (other.gameObject.CompareTag("Enemy") && Time.time >= lastDamageTime + damageCooldown)
         if (other.gameObject.CompareTag("Enemy"))
         {
                 health -= (50 * Time.fixedDeltaTime);
+                // lastDamageTime = Time.time;
         }
     }
 
