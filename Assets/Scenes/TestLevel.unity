@@ -164,10 +164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f93e906ae8c3a540ba2cf85192eb1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicEnemy: {fileID: 6793363563302146985, guid: ce2993f4a9e762643935300527f7a1dd, type: 3}
-  fastEnemy: {fileID: 8907262435682400875, guid: 8b8d77577dee19b44b5d1f13bbe5f67b, type: 3}
-  level: {fileID: 746297116}
-  player: {fileID: 633309872}
+  basicEnemy: {fileID: 496201215}
+  fastEnemy: {fileID: 765683582}
+--- !u!1 &496201215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6793363563302146985, guid: ce2993f4a9e762643935300527f7a1dd, type: 3}
+  m_PrefabInstance: {fileID: 5471384248051770787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &595572392
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +619,11 @@ MonoBehaviour:
 --- !u!4 &746963965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2195951255284539445, guid: 8b8d77577dee19b44b5d1f13bbe5f67b, type: 3}
+  m_PrefabInstance: {fileID: 3262145123183662861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &765683582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8907262435682400875, guid: 8b8d77577dee19b44b5d1f13bbe5f67b, type: 3}
   m_PrefabInstance: {fileID: 3262145123183662861}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &816708541
