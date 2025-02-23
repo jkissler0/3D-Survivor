@@ -12,7 +12,7 @@ public class LaunchProjectile : MonoBehavior {
 
       GameObject bullet = Instantiate (projectile, transform.position, transform.rotation);
 
-      bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3 0, launchVelocity, 0);
+      bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3 (0, 5, launchVelocity);
 
     }
     
