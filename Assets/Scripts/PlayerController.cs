@@ -72,4 +72,9 @@ public class PlayerController : MonoBehaviour
         SetHealth();
         
     }
+
+    public Vector3 GetVelocity()
+    {
+        return movement;
+    }
 }

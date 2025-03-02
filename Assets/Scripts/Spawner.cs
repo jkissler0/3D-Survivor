@@ -5,7 +5,9 @@ public class Spawner : MonoBehaviour
 {
     public GameObject basicEnemy;
     public GameObject fastEnemy;
-    private double timer;
+    private double spawnTimer;
+    private double spawnInterval = 3f;
+    public double gameTimer;
 
     public Vector3 RandomNavmeshLocation(float radius)
     {
@@ -26,8 +28,14 @@ public class Spawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (timer < 5) {
-            timer += 0.02;
+        // Every 15 seconds, enemies will begin to spawn faster
+        gameTimer += 0.02;
+        if (gameTimer % 15 == 0)
+        {
+            spawnInterval = spawnInterval * 0.8;
+        }
+        if (spawnTimer < spawnInterval) {
+            spawnTimer += 0.02;
         } else {
             // Spawn enemy
             float randSpawn = Random.value;
@@ -35,12 +43,12 @@ public class Spawner : MonoBehaviour
             {
                 Vector3 spawnPos = RandomNavmeshLocation(95);
                 Instantiate(basicEnemy, spawnPos, Quaternion.identity, this.gameObject.transform);
-                timer = 0;
+                spawnTimer = 0;
             } else
             {
                 Vector3 spawnPos = RandomNavmeshLocation(95);
                 Instantiate(fastEnemy, spawnPos, Quaternion.identity, this.gameObject.transform);
-                timer = 0;
+                spawnTimer = 0;
             }
             
         }
