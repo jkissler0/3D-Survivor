@@ -30,8 +30,10 @@ public class ProjectileController : MonoBehaviour
         // Spawn bullet when clicking with velocity that's equal to the normalized direction vector * launch speed
         if (Input.GetButton("Fire1") && (cooldownTimer > 0.25))
         {
+            Vector3 spawnOffset = playerDirection * 1.5f; // Move spawn point slightly forward
+            Vector3 spawnPosition = transform.position + spawnOffset;
 
-            GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(projectile, spawnPosition, Quaternion.identity);
             bullet.GetComponent<Rigidbody>().AddRelativeForce(launchVelocity * playerDirection);
             cooldownTimer = 0;
         }

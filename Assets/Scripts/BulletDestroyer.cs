@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class BulletDestroyer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject destroyVFX; // Assigned in Editor
+
     void Start()
     {
         StartCoroutine(SelfDestruct());
@@ -11,16 +12,25 @@ public class BulletDestroyer : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("World"))
+        if (collision.gameObject.CompareTag("World") || collision.gameObject.CompareTag("Enemy"))
         {
+            PlayEffect();
             Destroy(gameObject);
         }
     }
 
     IEnumerator SelfDestruct()
     {
-        // Destroys bullet object after it exists for 3 seconds
         yield return new WaitForSeconds(3f);
+        PlayEffect();
         Destroy(gameObject);
+    }
+
+    private void PlayEffect()
+    {
+        if (destroyVFX != null) 
+        {
+            Instantiate(destroyVFX, transform.position, Quaternion.identity);
+        }
     }
 }
