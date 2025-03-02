@@ -404,8 +404,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cfa2fa6388f3d4e82e5c2241076cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 926103000155854515, guid: d91ca51533dae344eb82515566c4cb33, type: 3}
-  player: {fileID: 633309872}
+  bulletObject: {fileID: 926103000155854515, guid: d91ca51533dae344eb82515566c4cb33, type: 3}
+  orbiterObject: {fileID: 5919274554073842518, guid: 5eaaab16f56cf704fbf12d850faf7108, type: 3}
+  player: {fileID: 633309867}
   launchVelocity: 700
 --- !u!1 &595572392
 GameObject:

@@ -25,6 +25,6 @@ public class ScoreCounter : MonoBehaviour
 
     private void UpdateEliminationsText()
     {
-        eliminationsText.text = "Eliminations: " + eliminations;
+        eliminationsText.text = "Eliminations: " + eliminations.ToString();
     }
 }

@@ -32,9 +32,10 @@ public class Spawner : MonoBehaviour
     {
         // Every 15 seconds, enemies will begin to spawn faster
         gameTimer += 0.02;
-        if (gameTimer % 15 == 0)
+        if (gameTimer >= 15)
         {
-            spawnInterval = spawnInterval * 0.8;
+            spawnInterval = spawnInterval * 0.75;
+            gameTimer = 0;
         }
 
         // Spawns an enemy every [spawnInterval] seconds
