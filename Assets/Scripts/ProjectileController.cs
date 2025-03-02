@@ -8,6 +8,7 @@ public class ProjectileController : MonoBehaviour
     private PlayerController playerController;
     public float launchVelocity = 700f;
     private Vector3 playerDirection;
+    private double cooldownTimer;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class ProjectileController : MonoBehaviour
         // Gets player gameObject so the GetVelocity() function from it can be called
         player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
+        cooldownTimer += Time.deltaTime;
         if (playerController.GetVelocity().normalized != Vector3.zero)
         {
             // A normalized vector can be used to represent the player's direction
@@ -26,12 +28,12 @@ public class ProjectileController : MonoBehaviour
         }
         
         // Spawn bullet when clicking with velocity that's equal to the normalized direction vector * launch speed
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && (cooldownTimer > 0.25))
         {
 
             GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody>().AddRelativeForce(launchVelocity * playerDirection);
-
+            cooldownTimer = 0;
         }
     }
 }
