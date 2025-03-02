@@ -19,6 +19,7 @@ public class BulletDestroyer : MonoBehaviour
 
     IEnumerator SelfDestruct()
     {
+        // Destroys bullet object after it exists for 3 seconds
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }

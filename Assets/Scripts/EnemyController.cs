@@ -17,11 +17,13 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Set Agent Pathing
         if (player != null)
         {
             navMeshAgent.SetDestination(player.position);
         }
 
+        // When enemy dies
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -30,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Take half of enemies' health away when being hit by a bullet
         if (other.gameObject.CompareTag("Weapon"))
         {
             health -= 50;

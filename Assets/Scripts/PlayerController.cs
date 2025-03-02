@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     public TextMeshProUGUI healthText;
-    // private int count;
     private Vector2 moveInput;
     private Vector3 movement;
     public float speed = 0;
@@ -29,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        // Player will take damage every frame they're touching an enemy
         if (other.gameObject.CompareTag("Enemy"))
         {
                 health -= (50 * Time.fixedDeltaTime);
@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     void SetHealth()
     {
+        // Rounds health to integer just in case and then updates the text
+        // Sets text to "You Lose!" when the player dies
         int healthInt = Mathf.RoundToInt(health);
         healthText.text = healthInt.ToString();
         if (health <= 0)
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Scene will be reloaded when pressing space
         try
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 GetVelocity()
     {
+        // Velocity getter function to use in the projectile controller to know the player's direction
         return movement;
     }
 }

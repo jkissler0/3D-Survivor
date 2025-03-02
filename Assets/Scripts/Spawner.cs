@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour
 
     public Vector3 RandomNavmeshLocation(float radius)
     {
+        // Somewhat complicated function that will return the closest NavMesh position to a random point selected
+        // within a sphere of the given radius
         Vector3 randomDirection = Random.insideUnitSphere * radius;
         randomDirection += transform.position;
         NavMeshHit hit;
@@ -34,6 +36,9 @@ public class Spawner : MonoBehaviour
         {
             spawnInterval = spawnInterval * 0.8;
         }
+
+        // Spawns an enemy every [spawnInterval] seconds
+        // Fast enemies should only spawn ~1/4 of the time
         if (spawnTimer < spawnInterval) {
             spawnTimer += 0.02;
         } else {
