@@ -19,10 +19,16 @@ public class LaunchProjectile : MonoBehaviour
       bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
 
     }
-  }
 
-  void
-}
+    if (Input.GetButtonDown("Fire2"))
+    {
+
+      GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
+
+      bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
+
+    }
+  }
 
 }
 
