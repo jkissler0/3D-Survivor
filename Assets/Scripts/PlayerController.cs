@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
-using UnityEditor.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,24 +11,39 @@ public class PlayerController : MonoBehaviour
     private Vector3 movement;
     public float speed = 0;
     public float health = 100;
+    //animator
+    public float moveSpeed = 5f; // Default movement speed
+    public float walkSpeed = 2.5f; // Walking speed
 
+    private Animator anim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         controller = GetComponent<CharacterController>();
         // count = 0;
+        anim = GetComponentInChildren<Animator>();
     }
 
     void OnMove(InputValue movementValue)
     {
         moveInput = movementValue.Get<Vector2>();
     }
+    // animator
+    private void Idle()
+    {
+        anim.SetFloat("Speed", 0);
+    }
+    private void Walk()
+    {
+        moveSpeed = walkSpeed;
+        anim.SetFloat("Speed", moveSpeed / 0.5f);
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-                health -= (50 * Time.fixedDeltaTime);
+            health -= (50 * Time.fixedDeltaTime);
         }
     }
 
@@ -50,8 +64,17 @@ public class PlayerController : MonoBehaviour
         movement.x = moveInput.x * speed;
         movement.z = moveInput.y * speed;
         controller.Move(movement * Time.fixedDeltaTime);
-        
-        SetHealth();
 
+        // Rotation: Smoothly rotate towards movement direction
+        if (movement != Vector3.zero)
+        {
+            transform.forward = Vector3.Slerp(transform.forward, movement.normalized, Time.deltaTime * 10f);
+            Walk(); // Play walking animation when moving
+        }
+        else
+        {
+            Idle(); // Play idle animation when not moving
+        }
+        SetHealth();
     }
 }
