@@ -5,6 +5,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public Transform player;
     public float health = 100;
+    public float damage = 35;
     private NavMeshAgent navMeshAgent;
 
     public GameObject enemyBleedVFX; // Assign Bleed VFX in Editor
@@ -43,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon"))
         {
-            health -= 50;
+            health -= damage;
         }
     }
 

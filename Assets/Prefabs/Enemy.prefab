@@ -51,8 +51,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   health: 100
+  damage: 25
   enemyBleedVFX: {fileID: 7717254722712186169, guid: 5aaba5821789a9f49ba64bdaef0fb873, type: 3}
   enemyDeathVFX: {fileID: 2848864080496737355, guid: af3616785436df84aab4a15b63617dd3, type: 3}
+  damageTextPrefab: {fileID: 5632773582804591232, guid: 580bec5bb81381147987769720881523, type: 3}
 --- !u!195 &1181687055462249244
 NavMeshAgent:
   m_ObjectHideFlags: 0
